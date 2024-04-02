@@ -32,7 +32,7 @@ subroutine minimize_energy_conjgrad(xyz, bonds, kappa_a, chi_a, kappa_b, chi_b, 
 
    call sqe_gradient_b(bonds, chi_a, chi_b, gradient)
 
-   b_norm = vector_norm(gradient)
+   b_norm = norm2(gradient)
    write(*,"(A8, 2X, F10.5)") "b_norm =", b_norm
 
    call initial_guess(split_q, Hessian_diag, gradient)
