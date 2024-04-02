@@ -84,12 +84,6 @@ module SQE_interfaces
    END INTERFACE
 
    INTERFACE
-      function vector_norm(x)
-         double precision, allocatable, intent(IN) :: x(:)
-      end function vector_norm
-   END INTERFACE
-
-   INTERFACE
       function sqe_energy(bonds, xyz, kappa_a, chi_a, kappa_b, chi_b, sqe_radii, split_q, Q)
          double precision, allocatable, intent(IN) :: kappa_a(:), chi_a(:), kappa_b(:), chi_b(:)
          double precision, allocatable, intent(IN) :: xyz(:,:), sqe_radii(:), split_q(:), Q(:)
