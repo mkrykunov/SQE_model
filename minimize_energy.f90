@@ -29,7 +29,7 @@ subroutine minimize_energy(xyz, bonds, kappa_a, chi_a, kappa_b, chi_b, sqe_radii
 
    call sqe_gradient_b(bonds, chi_a, chi_b, gradient)
 
-   b_norm = vector_norm(gradient)
+   b_norm = norm2(gradient)
    write(*,"(A8, 2X, F10.5)") "b_norm =", b_norm
 
    call initial_guess(split_q, Hessian_diag, gradient);
@@ -41,7 +41,7 @@ subroutine minimize_energy(xyz, bonds, kappa_a, chi_a, kappa_b, chi_b, sqe_radii
 
       split_q = split_q - alpha * gradient
 
-      grad_norm = vector_norm(gradient)
+      grad_norm = norm2(gradient)
 
       call split_q_to_Q(bonds, split_q, Q)
       energy = sqe_energy(bonds, xyz, kappa_a, chi_a, kappa_b, chi_b, sqe_radii, split_q, Q)
